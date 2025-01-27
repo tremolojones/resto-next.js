@@ -1,8 +1,13 @@
 /*-------------------
 #Contact
 ---------------------*/
+.contact {
+    background-color: #1a1814; /* Couleur de fond de la zone de message */
+}
+
 .contact .info {
     width: 100%;
+    color: #fff; /* Couleur de texte blanche */
 }
 
 .contact .info i {
@@ -32,6 +37,7 @@
     font-size: 14px;
     color: #bab3a6;
 }
+
 .contact .info .open-hours, 
 .contact .info .email, 
 .contact .info .phone {
@@ -40,6 +46,7 @@
 
 .contact .contact-form {
     width: 100%;
+    color: #fff; /* Couleur de texte blanche */
 }
 
 .contact .contact-form .form-group {
@@ -54,8 +61,7 @@
     font-size: 13px;
 }
 
-.contact .contact-form  .error-message {
-
+.contact .contact-form .error-message {
     display: none;
     color: #fff;
     background: #ed3c0d;
@@ -64,8 +70,7 @@
     font-weight: 600;
 }
 
-.contact .contact-form  .sent-message {
-
+.contact .contact-form .sent-message {
     display: none;
     color: #fff;
     background: #18d26e;
@@ -93,23 +98,14 @@
     animation: animate-loading 1s linear infinite;
 }
 
-.form-control {
-     
-    border-color: #625b4b;
-    color: #fff;
-
-}
-
 .contact .contact-form-control input,
 .contact .contact-form textarea {
     border-radius: 0;
     box-shadow: none;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 14px;
     background: #1a1814;
     border-color: #625b4b;
-    
-
+    color: #fff;
 }
 
 .contact .contact-form .input::-webkit-input-placeholder,
@@ -138,7 +134,6 @@
 
 .contact .contact-form textarea {
     padding: 10px 12px;
-   
 }
 
 .contact .contact-form button[type=submit] {

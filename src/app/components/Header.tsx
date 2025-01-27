@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 import Nav from './Nav';
 import AppBtn from './AppBtn';
@@ -10,13 +11,12 @@ export default function Header() {
     const [scroll, setScroll] = useState(0);
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        const handleScroll = () => {
             setScroll(window.scrollY);
-        });
+        };
+        window.addEventListener('scroll', handleScroll);
         return () => {
-            window.removeEventListener('scroll', () => {
-                setScroll(window.scrollY);
-            });
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
      
@@ -24,11 +24,13 @@ export default function Header() {
         <header 
             id="header"
             className={`fixed-top d-flex align-items-center ${
-                scroll > 100 ? 'header-scrolled' : undefined}`}
+                scroll > 100 ? 'header-scrolled' : ''}`}
         >
             <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
                 <h1 className="logo me-auto me-lg-0">
-                    <a href="/">Restaurant</a>
+                    <Link href="/">
+                        Restaurant
+                    </Link>
                 </h1>
                 <Nav />
                 <AppBtn name="Book a table" />
@@ -36,4 +38,3 @@ export default function Header() {
         </header>
     );
 }
- 

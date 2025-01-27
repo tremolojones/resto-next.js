@@ -26,92 +26,92 @@ export default function Booking() {
         setText({ ...text, [name]: value, validate: '' });
     };
 
-    // Soumission du formulaire
-    const handleSubmitBooking = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+ // Soumission du formulaire
+const handleSubmitBooking = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-        // Validation des champs requis
-        if (
-            text.name.trim() === '' ||
-            text.email.trim() === '' ||
-            text.phone.trim() === '' ||
-            text.date.trim() === '' ||
-            text.time.trim() === '' ||
-            text.people.trim() === ''
-        ) {
-            setText((prevState) => ({
-                ...prevState,
-                validate: 'Please fill in all required fields',
-            }));
-            return;
-        }
+    // Validation des champs requis
+    if (
+        text.name.trim() === '' ||
+        text.email.trim() === '' ||
+        text.phone.trim() === '' ||
+        text.date.trim() === '' ||
+        text.time.trim() === '' ||
+        text.people.trim() === ''
+    ) {
+        setText({
+            ...text,
+            validate: 'Please fill in all required fields',
+        });
+        return;
+    }
 
-        // Validation spécifique pour email, téléphone, et nombre de personnes
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(text.email)) {
-            setText((prevState) => ({
-                ...prevState,
-                validate: 'Invalid email format',
-            }));
-            return;
-        }
+    // Validation spécifique pour email, téléphone, et nombre de personnes
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(text.email)) {
+        setText({
+            ...text,
+            validate: 'Invalid email format',
+        });
+        return;
+    }
 
-        const phoneRegex = /^\d+$/;
-        if (!phoneRegex.test(text.phone)) {
-            setText((prevState) => ({
-                ...prevState,
-                validate: 'Phone number should contain only numbers',
-            }));
-            return;
-        }
+    const phoneRegex = /^\d+$/;
+    if (!phoneRegex.test(text.phone)) {
+        setText({
+            ...text,
+            validate: 'Phone number should contain only numbers',
+        });
+        return;
+    }
 
-        if (parseInt(text.people, 10) <= 0) {
-            setText((prevState) => ({
-                ...prevState,
-                validate: 'Number of people must be greater than 0',
-            }));
-            return;
-        }
+    if (parseInt(text.people, 10) <= 0) {
+        setText({
+            ...text,
+            validate: 'Number of people must be greater than 0',
+        });
+        return;
+    }
 
-        try {
-            // Indiquer que la soumission est en cours
-            setText((prevState) => ({ ...prevState, validate: 'loading' }));
+    try {
+        // Indiquer que la soumission est en cours
+        setText({ ...text, validate: 'loading' });
 
-            // Envoi des données au backend
-            const response = await fetch('http://localhost:3000/api/booking', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(text),
+        // Envoi des données au backend
+        const response = await fetch('http://localhost:3000/api/booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(text),
+        });
+
+        if (response.ok) {
+            // En cas de succès
+            const result = await response.json();
+            setText({
+                ...initialState,
+                validate: 'success',
             });
-
-            if (response.ok) {
-                // En cas de succès
-                const result = await response.json();
-                setText((prevState) => ({
-                    ...initialState,
-                    validate: 'success',
-                }));
-                console.log('Success:', result);
-            } else {
-                // En cas d'erreur côté serveur
-                const error = await response.json();
-                setText((prevState) => ({
-                    ...prevState,
-                    validate: error.message || 'An error occurred. Please try again.',
-                }));
-                console.error('Server Error:', error);
-            }
-        } catch (error) {
-            // En cas d'erreur réseau ou autre
-            console.error('Network Error:', error);
-            setText((prevState) => ({
-                ...prevState,
-                validate: 'An error occurred. Please try again.',
-            }));
+            console.log('Success:', result);
+        } else {
+            // En cas d'erreur côté serveur
+            const error = await response.json();
+            setText({
+                ...text,
+                validate: error.message || 'An error occurred. Please try again.',
+            });
+            console.error('Server Error:', error);
         }
-    };
+    } catch (error) {
+        // En cas d'erreur réseau ou autre
+        console.error('Network Error:', error);
+        setText({
+            ...text,
+            validate: 'An error occurred. Please try again.',
+        });
+    }
+};
 
     return (
         <section id='book-a-table' className='book-a-table'>
