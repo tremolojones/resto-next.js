@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import Nav from './Nav';
 import AppBtn from './AppBtn';
-import './Header.css';
+import './header.css';
 
 export default function Header() {
     const [scroll, setScroll] = useState(0);
@@ -36,3 +36,4 @@ export default function Header() {
         </header>
     );
 }
+ 
