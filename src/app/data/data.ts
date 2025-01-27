@@ -175,8 +175,8 @@ export const filters = [
     },
     {
         id: 4,
-        name: 'Specialyty',
-        category: 'specialstion',
+        name: 'Specialty',
+        category: 'speciality',
         active: false,
     },
 ];
