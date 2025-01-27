@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import './eventsItem.css';
 
 export default function EventItem({ item }: { item: {
@@ -13,7 +14,7 @@ export default function EventItem({ item }: { item: {
   return (
     <div className="row event-item">
       <div className="col-lg-6">
-        <img src={item.image} alt="" className="img-fluid" />
+        <Image src={item.image} layout="responsive" width={500} height={500} alt="" className="img-fluid" />
       </div>
       <div className="col-lg-6 pt-4 pt-lg-0 content">
         <h3>{item.title}</h3>

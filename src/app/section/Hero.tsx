@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import './hero.css';
 import HeroBtn from '../components/HeroBtn';
 import Glightbox from 'glightbox';
@@ -44,9 +43,6 @@ export default function Hero() {
             </div>
           </div>
           {/* GLightbox Wrapper */}
-
-
         </section>
       );
 }
-

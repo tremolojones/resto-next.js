@@ -1,5 +1,6 @@
 import React from 'react';
-import  './chefsItem.css';
+import Image from 'next/image';
+import './chefsItem.css';
 
 export default function ChefsItem({
   item,
@@ -16,7 +17,7 @@ export default function ChefsItem({
     <div className="col-lg-3 col-md-6">
       <div className="chef-member" data-aos="fade-up" data-aos-delay={item.delay}>
         {/* Image du chef */}
-        <img src={item.photo} className="img-fluid" alt={`${item.name} - ${item.position}`} />
+        <Image src={item.photo} layout="responsive" width={500} height={500} alt={`${item.name} - ${item.position}`} />
         
         {/* Informations du chef */}
         <div className="member-info">

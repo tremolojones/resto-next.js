@@ -10,8 +10,18 @@ import './events.css';
 import SectionTitle from '../components/SectionTitle';
 import EventItem from '../components/EventsItem';
 
+interface EventItem {
+  id: number;
+  image: string;
+  title: string;
+  price: number | string;
+  content: string;
+  details: string[];
+  summary: string;
+}
+
 export default function Events() {
-    const [slides, setSlides] = useState<any | []>([]);
+    const [slides, setSlides] = useState<EventItem[]>([]);
 
     const getEventsData = () => {
         fetch('http://localhost:3000/api/events')
@@ -50,15 +60,7 @@ export default function Events() {
                         {slides &&
                         slides.length > 0 &&
                         slides.map(
-                            (slide: {
-                                id: number;
-                                image: string;
-                                title: string;
-                                price: number;
-                                content: string;
-                                details: string[];
-                                summary: string;
-                            }) => (
+                            (slide: EventItem) => (
                                 <SwiperSlide key={slide.id}>
                                     <EventItem item={slide} />
                                 </SwiperSlide>

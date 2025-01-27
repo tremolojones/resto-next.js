@@ -1,26 +1,31 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 
-
 // import swiper react components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import 'swiper/swiper-bundle.css';
-
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
 
 import './testimonials.css';
 import SectionTitle from '../components/SectionTitle';
-import TestimonialsItem from    '../components/TestimonialsItem';
+import TestimonialsItem from '../components/TestimonialsItem';
+
+interface Testimonial {
+  id: number;
+  content: string;
+  avatar: string;
+  client: string;
+  position: string;
+}
 
 export default function Testimonials() {
-    const [slides, setSlides] = useState<any | []>([]);
+    const [slides, setSlides] = useState<Testimonial[]>([]);
 
     const getTestimonialsData = () => {
         fetch('http://localhost:3000/api/testimonials')
@@ -70,13 +75,7 @@ export default function Testimonials() {
                         {slides &&
                         slides.length > 0 &&
                         slides.map(
-                            (slide: {
-                                id: number;
-                                content: string;
-                                avatar: string;
-                                client: string;
-                                position: string;
-                            }) => (
+                            (slide: Testimonial) => (
                                 <SwiperSlide key={slide.id}>
                                     <TestimonialsItem item={slide} />
                                 </SwiperSlide>
