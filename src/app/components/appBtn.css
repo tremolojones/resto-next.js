@@ -1,0 +1,28 @@
+/*-----
+#Book a table button menu 
+-----*/
+
+.app-btn {
+    margin: 0 0 0 15px;
+    border: 2px solid #04f01f;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.3s;   
+    cursor: pointer;
+}
+
+.app-btn:hover {
+    background-color: #d9ba85;
+    color: #fff;
+}
+@media (max-width: 992px) {
+    .app-btn {
+        margin: 0 15px 0 0;
+        padding: 8px 20px;
+    }
+}

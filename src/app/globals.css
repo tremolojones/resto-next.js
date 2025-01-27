@@ -1,0 +1,41 @@
+/*------------
+#General 
+------------*/
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
+  background-color: rgb(19, 17, 15) !important;
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/*------------
+#Section General 
+------------*/
+
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: #0a0d10;
+}
+

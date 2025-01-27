@@ -1,0 +1,37 @@
+.events.events-item {
+    color : #fff;
+}
+
+.events.events-item h3 {
+    color : #cda45e;
+}
+
+.events.events-item .price{
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+    
+}
+
+.events.events-item .price span{
+    border-bottom: 2px solid #cda45e;
+}
+
+.events.events-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.events.events-item ul li {
+    padding-bottom: 10px;
+}
+
+.events.events-item ul i {
+    font-size: 20px;
+    padding-right: 4px;
+    color: #cda45e;
+}
+
+.events.events-item p:last-child {
+    margin-bottom: 0;
+}

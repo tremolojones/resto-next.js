@@ -1,0 +1,40 @@
+.specials .tab-pane-active {
+    -webkit-animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.specials .details h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.specials .details p {
+    color: #aaaaaa;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.specials .details p:last-child {
+    margin-bottom: 0;
+}
+
+/* Définition de l'animation fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

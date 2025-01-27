@@ -1,0 +1,37 @@
+/*------
+    Back to top button
+    ------*/
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    transition: all 0.4s;
+    border-radius: 50px;
+    transition: all 0.4s;
+    border: 2ox solid #04f01f;
+    text-decoration: none;
+}
+.back-to-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 44px
+}
+
+.back-to-top:hover {
+    background-color: #04f01f;
+    color: #04f01f;
+}
+.back-to-top:hover i {
+    color: #fff;
+}
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+
+}
