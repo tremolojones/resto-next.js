@@ -1,4 +1,4 @@
-/*----------- 
+ /*----------- 
     Nav 
 -----------*/
 /**
@@ -36,21 +36,22 @@
 }
 
 /* Taille des icônes dans la navbar */
-.navbar a, i,
+.navbar a i,
 .navbar a:focus i {
-    font-size: 16px; /* Ajustez ici la taille de l'icône */
+    font-size: 16px;
     line-height: 0;
     margin-left: 5px;
 }
 
-.navbar a:hover, .navbar a:focus {
-    color:  #d9ba85;
+.navbar a:hover,
+.navbar a:focus {
+    color: #d9ba85;
 }
 
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover > a {
-    color:  #d9ba85;
+    color: #d9ba85;
 }
 
 .navbar .dropdown ul {
@@ -80,7 +81,7 @@
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover > a {
-    color:  #d9ba85;
+    color: #d9ba85;
 }
 
 .navbar .dropdown:hover > ul {
@@ -162,6 +163,7 @@
     background-color: #ffffff;
     overflow-y: auto;
     transition: 0.3s;
+    z-index: 1000; /* Assurez-vous que le menu est au-dessus des autres éléments */
 }
 
 .navbar-mobile a {
@@ -211,14 +213,11 @@ html {
     right: 10px;
 }
 
-
-
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover > a {
-    color:  #d9ba85;
-} 
-
+    color: #d9ba85;
+}
 
 .navbar-mobile .dropdown > .dropdown-active {
     display: block;
@@ -226,16 +225,14 @@ html {
 
 /* Spécifique aux icônes dans la navbar */
 .navbar a i {
-    font-size: 18px; /* Taille des icônes */
-    margin-right: 10px; /* Marge à droite de l'icône */
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .navbar a:hover i {
-    color:  #d9ba85; /* Couleur des icônes au survol */
+    color: #d9ba85;
 }
 
-/* Ajoutez des styles spécifiques pour des icônes précises si nécessaire */
 .navbar a i.bi-house-door-fill {
-    font-size: 20px; /* Plus grande taille pour l'icône "house" */
-     
+    font-size: 20px;
 }

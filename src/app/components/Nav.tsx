@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { navs } from '../data/data';
-
 import './nav.css';
 
 export default function Nav() {
@@ -11,6 +10,7 @@ export default function Nav() {
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState(0);
 
+    // Gestion du scroll
     useEffect(() => {
         const handleScroll = () => {
             setScroll(window.scrollY);
@@ -21,25 +21,34 @@ export default function Nav() {
         };
     }, []);
 
+    // Ouvrir/fermer le menu mobile
     const handleToggleMenu = () => {
         setOpen(!open);
     };
 
+    // Défilement vers une section
     const handleScrollTo = (section: string) => {
+        setOpen(false); // Fermer le menu mobile
         const header = document.querySelector('#header') as HTMLElement;
-        const offset = header.offsetHeight;
+        const offset = header?.offsetHeight || 0;
         const targetElement = document.querySelector('#' + section) as HTMLElement;
+
         if (pathname === '/') {
-            const elementPosition = targetElement.offsetTop;
-            window.scrollTo({
-                top: elementPosition - offset,
-                behavior: 'smooth',
-            });
+            setTimeout(() => {
+                if (targetElement && targetElement.offsetHeight > 0) {
+                    const elementPosition = targetElement.offsetTop;
+                    window.scrollTo({
+                        top: elementPosition - offset,
+                        behavior: 'smooth',
+                    });
+                }
+            }, 100); // Délai pour permettre le rendu
         } else {
             router.push(`/#${section}`);
         }
     };
 
+    // Gestion de l'état actif des liens
     const handleNavActive = () => {
         const position = scroll + 200;
         setNavList(
@@ -47,8 +56,8 @@ export default function Nav() {
                 nav.active = false;
                 const targetSection = document.querySelector('#' + nav.target) as HTMLElement;
                 if (
-                    targetSection && 
-                    position >= targetSection.offsetTop && 
+                    targetSection &&
+                    position >= targetSection.offsetTop &&
                     position <= targetSection.offsetTop + targetSection.offsetHeight
                 ) {
                     nav.active = true;
@@ -58,10 +67,12 @@ export default function Nav() {
         );
     };
 
+    // Mettre à jour l'état actif des liens lors du scroll
     useEffect(() => {
         handleNavActive();
     }, [scroll]);
 
+    // Retour à la page d'accueil
     const handleGoHome = () => {
         document.documentElement.style.scrollBehavior = 'smooth';
         window.location.href = '/';

@@ -1,17 +1,18 @@
-/* Hero Section */
+/* ----------
+#Hero Section 
+----------*/
 #hero {
   width: 100vw;
   height: 100vh;
   background: url('/assets/images/zz.jpg') top center no-repeat;
   background-size: cover;
-  
   position: relative;
   padding: 0;
 }
   
   .hero::before {
     content: "";
-    background: rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, 0.9);
     position: absolute;
     bottom: 0;
     top: 0;
