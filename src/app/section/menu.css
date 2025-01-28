@@ -1,33 +1,24 @@
-/*-----------
-    #Menu
-------------*/
-.menu #menu-filters {
-    padding: 0;
-    margin: 0 auto 0 auto;
+#menu-filters {
     list-style: none;
-    text-align: center;
-    border-radius: 50px;
+    padding: 0;
+    display: flex;
+    gap: 10px;
 }
 
-.menu #menu-filters li {
+#menu-filters li {
     cursor: pointer;
-    display: inline-block;
-    padding: 8px 12px 10px 12px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
-    color: #fff;
-    margin-bottom: 10px;
-    transition: all ease-in-out 0.3s;
+    padding: 10px 20px;
+    border: 1px solid #cda45e;
     border-radius: 50px;
-    font-family: 'playfair display', sans-serif;
+    transition: background 0.3s ease;
 }
 
-.menu #menu-filters li:hover, 
-.menu #menu-filters li.filter-active {
-    color: #d9ba85;
+#menu-filters li.filter-active {
+    background: #cda45e;
+    color: #fff;
 }
 
-.menu #menu-filters li:last-child {
-    margin-right: 0;
+#menu-filters li:hover {
+    background: #cda45e;
+    color: #fff;
 }

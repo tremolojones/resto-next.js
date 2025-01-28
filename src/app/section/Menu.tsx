@@ -9,27 +9,41 @@ import Preloader from '../components/Preloader';
 
 export default function Menu() {
     const [data, setData] = useState([]);
-    const [items, setItems] = useState([]);
-
-    const getMenuData = () => {
-        fetch('http://localhost:3000/api/menu')
-            .then(res => res.json())
-            .then(data => setData(data))
-            .catch(e => console.log(e.message));
-    };
+    const [items, setItems] = useState<{ id: number; name: string; preview: string; price: number; ingredients: string; }[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        const getMenuData = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/menu');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
+                setData(data);
+                setItems(data);
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    setError(error.message);
+                } else {
+                    setError("An unexpected error occurred");
+                }
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
         getMenuData();
     }, []);
 
-    useEffect(() => {
-        setItems(data);
-    }, [data]);
-
-    const handleFilterChange = (id: number, category: string) => {
-        // Logique pour filtrer les éléments en fonction de l'ID et de la catégorie
-        const filteredItems = data.filter((item: { id: number; category: string; }) => item.id === id || item.category === category);
-        setItems(filteredItems);
+    const handleFilterChange = (category: string) => {
+        if (category === "all") {
+            setItems(data);
+        } else {
+            const filteredItems = data.filter((item: { id: number; category: string; }) => item.category === category);
+            setItems(filteredItems);
+        }
     };
 
     return (
@@ -42,7 +56,7 @@ export default function Menu() {
                             <li
                                 key={filter.id}
                                 className={filter.active ? 'filter-active' : undefined}
-                                onClick={() => handleFilterChange(filter.id, filter.category)}
+                                onClick={() => handleFilterChange(filter.category)}
                             >
                                 {filter.name}
                             </li>
@@ -51,24 +65,15 @@ export default function Menu() {
                 </div>
             </div>
 
-            <div className="row menu_container"
-                data-aos="fade-up"
-                data-aos-delay="200"
-            >
-                {!items? (
+            <div className="row menu_container" data-aos="fade-up" data-aos-delay="200">
+                {isLoading ? (
                     <Preloader />
-                ):items.length > 0 ? (
-                    items.map(
-                        (item: {
-                            id: number;
-                            name: string;
-                            preview: string;
-                            price: number;
-                            ingredients: string;
-                        }) => <MenuItem key={item.id} item={item} />
-                    )
+                ) : error ? (
+                    <div>Error: {error}</div>
+                ) : items.length > 0 ? (
+                    items.map((item) => <MenuItem key={item.id} item={item} />)
                 ) : (
-                    <Preloader />
+                    <div>No items found.</div>
                 )}
             </div>
         </section>

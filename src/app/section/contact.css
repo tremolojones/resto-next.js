@@ -2,12 +2,12 @@
 #Contact
 ---------------------*/
 .contact {
-    background-color: #1a1814; /* Couleur de fond de la zone de message */
+    background-color: #1a1814; /* Fond sombre pour la section contact */
 }
 
 .contact .info {
     width: 100%;
-    color: #fff; /* Couleur de texte blanche */
+    color: #fff; /* Texte blanc */
 }
 
 .contact .info i {
@@ -15,7 +15,7 @@
     float: left;
     width: 44px;
     height: 44px;
-    background: #cda45e;
+    background: #cda45e; /* Icônes dorées */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
     padding: 0 0 0 60px;
     margin-bottom: 0;
     font-size: 14px;
-    color: #bab3a6;
+    color: #bab3a6; /* Texte gris clair */
 }
 
 .contact .info .open-hours, 
@@ -46,7 +46,7 @@
 
 .contact .contact-form {
     width: 100%;
-    color: #fff; /* Couleur de texte blanche */
+    color: #fff; /* Texte blanc */
 }
 
 .contact .contact-form .form-group {
@@ -98,34 +98,13 @@
     animation: animate-loading 1s linear infinite;
 }
 
-.contact .contact-form-control input,
-.contact .contact-form textarea {
+.contact .contact-form .form-control {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
-    background: #1a1814;
-    border-color: #625b4b;
-    color: #fff;
-}
-
-.contact .contact-form .input::-webkit-input-placeholder,
-.contact .contact-form textarea::-webkit-input-placeholder {
-    color: #a49b89;
-}
-
-.contact .contact-form .input::-moz-placeholder,
-.contact .contact-form textarea::-moz-placeholder {
-    color: #a49b89;
-}
-
-.contact .contact-form .input::placeholder,
-.contact .contact-form textarea::placeholder {
-    color: #a49b89;
-}
-
-.contact .contact-form .input:focus,
-.contact .contact-form textarea:focus {
-    border-color: #cda45e;
+    background: #1a1814; /* Fond sombre */
+    border-color: #625b4b; /* Bordure */
+    color: #fff; /* Texte blanc */
 }
 
 .contact .contact-form input {
@@ -134,10 +113,23 @@
 
 .contact .contact-form textarea {
     padding: 10px 12px;
+    height: auto; /* Hauteur automatique */
+}
+
+.contact .contact-form input::placeholder,
+.contact .contact-form textarea::placeholder {
+    color: #a49b89; /* Couleur du placeholder */
+    opacity: 1; /* Opacité à 100% */
+}
+
+.contact .contact-form input:focus,
+.contact .contact-form textarea:focus {
+    border-color: #cda45e; /* Bordure dorée en focus */
+    outline: none; /* Supprime l'outline par défaut */
 }
 
 .contact .contact-form button[type=submit] {
-    background: #cda45e;
+    background: #cda45e; /* Bouton doré */
     border: 0;
     padding: 10px 35px;
     color: #fff;
@@ -146,7 +138,7 @@
 }
 
 .contact .contact-form button[type=submit]:hover {
-    background: #d3af71;
+    background: #d3af71; /* Bouton doré au survol */
 }
 
 @-webkit-keyframes animate-loading {
