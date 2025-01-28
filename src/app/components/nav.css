@@ -1,4 +1,4 @@
- /*----------- 
+/*----------- 
     Nav 
 -----------*/
 /**
@@ -235,4 +235,17 @@ html {
 
 .navbar a i.bi-house-door-fill {
     font-size: 20px;
+}
+
+/* Styles pour les écrans de bureau */
+@media (min-width: 992px) {
+    .navbar {
+        display: flex;
+    }
+    .mobile-nav-toggle {
+        display: none;
+    }
+    .navbar-mobile {
+        display: none;
+    }
 }

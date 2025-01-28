@@ -45,23 +45,23 @@ export default function Footer() {
               <ul>
                 <li>
                   <i className='bx bx-chevron-right'></i>{''}
-                  <a href='#'>Home</a>
+                  <a href='#home'>Home</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right'></i>{' '}
-                  <a href='#'>About Us</a>
+                  <a href='#about'>About Us</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right'></i>
-                  <a href='#'>Menu</a>
+                  <a href='#menu'>Menu</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right'></i>
-                  <a href='#'>Events</a>
+                  <a href='#events'>Events</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right'></i>{' '}
-                  <a href='#'>Gallery</a>
+                  <a href='#gallery'>Gallery</a>
                 </li>
               </ul>
             </div>
@@ -79,15 +79,15 @@ export default function Footer() {
                 </li>
                 <li>
                   <i className='bx bx-chevron-right'></i>{' '}
-                  <a href="#">Events</a>
+                  <a href="#events">Events</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right'></i>{' '}
-                  <a href="#">Private Chef</a>
+                  <a href="#chefs">Private Chef</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right'></i>{' '}
-                  <a href="#">Ceremony</a>
+                  <a href="#events">Ceremony</a>
                 </li>
               </ul>
             </div>
